@@ -338,19 +338,19 @@ gdigrab_read_header(AVFormatContext *s1)
         clip_rect.bottom = gdigrab->height + gdigrab->offset_y;
     }
 
-    if (clip_rect.left < virtual_rect.left ||
-            clip_rect.top < virtual_rect.top ||
-            clip_rect.right > virtual_rect.right ||
-            clip_rect.bottom > virtual_rect.bottom) {
-            av_log(s1, AV_LOG_ERROR,
-                    "Capture area (%li,%li),(%li,%li) extends outside window area (%li,%li),(%li,%li)",
-                    clip_rect.left, clip_rect.top,
-                    clip_rect.right, clip_rect.bottom,
-                    virtual_rect.left, virtual_rect.top,
-                    virtual_rect.right, virtual_rect.bottom);
-            ret = AVERROR(EIO);
-            goto error;
-    }
+    // if (clip_rect.left < virtual_rect.left ||
+    //         clip_rect.top < virtual_rect.top ||
+    //         clip_rect.right > virtual_rect.right ||
+    //         clip_rect.bottom > virtual_rect.bottom) {
+    //         av_log(s1, AV_LOG_ERROR,
+    //                 "Capture area (%li,%li),(%li,%li) extends outside window area (%li,%li),(%li,%li)",
+    //                 clip_rect.left, clip_rect.top,
+    //                 clip_rect.right, clip_rect.bottom,
+    //                 virtual_rect.left, virtual_rect.top,
+    //                 virtual_rect.right, virtual_rect.bottom);
+    //         ret = AVERROR(EIO);
+    //         goto error;
+    // }
 
 
     if (name) {
